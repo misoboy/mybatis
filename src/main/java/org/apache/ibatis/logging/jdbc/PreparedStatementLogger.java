@@ -1,5 +1,5 @@
 /**
- *    Copyright ${license.git.copyrightYears} the original author or authors.
+ *    Copyright 2009-2018 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -51,7 +51,8 @@ public final class PreparedStatementLogger extends BaseJdbcLogger implements Inv
       }          
       if (EXECUTE_METHODS.contains(method.getName())) {
         if (isDebugEnabled()) {
-          debug("Execute   :\nParameters : " + getParameterValueString() + " \nSQL :\n\n " + removeBreakingWhitespace(this.executeSql) + "\n", true);
+          debug("Execute   : \nSQL :\n\n " + removeBreakingWhitespace(this.executeSql) + "\n", true);
+          debug("Parameters : " + getParameterValueString(), true);
         }
         clearColumnInfo();
         if ("executeQuery".equals(method.getName())) {
